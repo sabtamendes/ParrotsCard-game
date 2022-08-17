@@ -1,7 +1,7 @@
 let quantidadeDeCartas;
 const parrots = ['bobrossparrot', 'explodyparrot', 'fiestaparrot', 'metalparrot', 'revertitparrot', 'tripletsparrot', 'unicornparrot']
 const duplicar = [];
-
+let temporizador = 0;
 
 // +++++++++++++++++++++++++++++++++++++++++++++++
 function perguntarCartas() {
@@ -54,18 +54,23 @@ function inserirCartas() {
     </ul>`
 
     }
-
+//setInterval(contarTempo, 1000, temporizador)
 }
 inserirCartas();
 
 
 function virarCartas(element){
-element.querySelector('.card');
-element.classList.add('flip');4
+
 if(element.classList.contains('flip')){
     console.log('clicado')
     element.classList.remove('flip');
     console.log(element)
 }
 
+}
+
+function contarTempo(){
+   temporizador++
+   document.querySelector('.timer').innerHTML = temporizador;
+clearInterval()
 }
