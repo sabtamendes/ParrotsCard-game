@@ -65,17 +65,36 @@ img {
     width: 100%;
     min-height: 50%;
 }
-
-.card.flip .back {
+.front{
+    background-color: #A7E9AF;
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+  }
+.card:hover .back {
     transform: rotateY(0deg);
     z-index: 1;
 }
 
-.card.flip .front {
-    transform: rotateY(-180deg);
-    backface-visibility: hidden;
+.card:hover .front {
+    transform: rotateY(180deg);
     z-index: 0;
 }
+
+.timer {
+    position: absolute;
+    top:15%;
+    right: 0;
+    background-color: rgba(30, 204, 175, 0.39);
+    width: 120px;
+    height: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5%;
+    color: azure;
+    font-size: 35px;
+  }
+  
 
 @media (max-width: 650px) {
     h1 {
