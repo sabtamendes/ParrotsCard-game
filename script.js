@@ -49,7 +49,7 @@ function duplicar() {
 
     renderizarCartasDuplicadas();
 
-    setInterval(contarTempo, 1000)
+    setInterval(contarTempo, 1000);
 }
 
 //as cartas que renderizarei não são as mesmas que eu dupliquei
