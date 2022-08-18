@@ -72,8 +72,8 @@ function renderizarCartasDuplicadas() {
 }
 
 
-let primeiraCarta;
-let segundaCarta;
+let primeiraCarta = null;
+let segundaCarta = null;
 
 function virarCarta(cartaClicada) {
     // quando clico na carta por duas vezes ela conta como 1a e 2a carta
@@ -82,17 +82,17 @@ function virarCarta(cartaClicada) {
         return;
     }
     //evitará que ao clicar em duas cartas diferentes e logo clicar na terceira antes de esperar as duas primeiras virarem, esse if bloqueia a terceira carta de ser clicada enquanto as outras estao sendo desviradas
-    if (primeiraCarta !== undefined && segundaCarta !== undefined) {
+    if (primeiraCarta !== null && segundaCarta !== null) {
         return;
     }
-    //nesse trecho se a carta for undefined ou seja foi clicada, é atrbuído o card, pq é o clique
+    //nesse trecho se a carta for null ou seja ainda não foi clicada e ao clicar recebe o innerhtml de carta clicada, é atrbuído o card, pq é o clique
     cartaClicada.classList.add("flip");
-    if (primeiraCarta === undefined) {
+    if (primeiraCarta === null) {
         primeiraCarta = cartaClicada;
         cliques = cliques + 1;
 
     } else {
-            if (segundaCarta === undefined) {
+            if (segundaCarta === null) {
                 segundaCarta = cartaClicada;
                 //aqui devo fazer uma comparação nas cartas, se são iguais devo deixar elas viradas, ou seja não faço nada com elas, apenas coloco o valor como undefined
             if (primeiraCarta.innerHTML === segundaCarta.innerHTML) {
@@ -113,9 +113,10 @@ function virarCarta(cartaClicada) {
 
 }
 
+
 function resetarCartas() {
-    primeiraCarta = undefined;
-    segundaCarta = undefined;
+    primeiraCarta = null;
+    segundaCarta = null;
 }
 
 function desvirarCarta() {
