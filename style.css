@@ -30,8 +30,11 @@
  .cardBoard {
    margin: 0 auto;
    display: flex;
-   justify-content: space-between;
+   justify-content: space-evenly;
    flex-wrap: wrap;
+   width: 40vw;
+   height: 20vw;
+   background-color: aqua;
  }
 
  .card {
@@ -39,7 +42,7 @@
    height: 170px;
    position: relative;
    perspective: 800px;
-   margin: 5px;
+   margin: 0;
    padding: 5px;
    display: flex;
    flex-wrap: wrap;
@@ -113,6 +116,10 @@
 
    .card {
      cursor: none;
+   }
+
+   .cardBoard {
+     width: 100vw;
    }
 
    .timer {
