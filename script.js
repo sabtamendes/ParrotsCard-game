@@ -10,6 +10,8 @@ let tiposDeImagens = ['bobrossparrot', 'explodyparrot', 'fiestaparrot', 'metalpa
 
 let duplicarCartas = []; //nesse array vou guardar as imagens duplicadas e jogar com essas imagens
 
+let idInterval;
+
 
 function cartasInvalidas() {
 
@@ -22,10 +24,10 @@ function cartasInvalidas() {
 
 function perguntarCartas() {
 
-    quantidadeDeCartas = Number(prompt('Informe a quantidade de cartas que você quer jogar!\nRegra do Jogo: A quantidade deverá ser a partir de 4 até 14 cartas e somente números pares'));
+    quantidadeDeCartas = Number(prompt('Informe a quantidade de cartas que você quer jogar!\nRegra do Jogo: A quantidade deverá ser a partir de 4 até 14 cartas e somente números pares. 🦜'));
 
     while (cartasInvalidas()) {
-        quantidadeDeCartas = Number(prompt('Informe a quantidade de cartas que você quer jogar!\nRegra do Jogo: A quantidade deverá ser a partir de 4 até 14 cartas e somente números pares'));
+        quantidadeDeCartas = Number(prompt('Informe a quantidade de cartas que você quer jogar!\nRegra do Jogo: A quantidade deverá ser a partir de 4 até 14 cartas e somente números pares. 🦜'));
     }
     duplicar();
 }
@@ -49,7 +51,7 @@ function duplicar() {
 
     renderizarCartasDuplicadas();
 
-    setInterval(contarTempo, 1000);
+    idInterval = setInterval(contarTempo, 1000);
 }
 
 //as cartas que renderizarei não são as mesmas que eu dupliquei
@@ -92,9 +94,9 @@ function virarCarta(cartaClicada) {
         cliques = cliques + 1;
 
     } else {
-            if (segundaCarta === null) {
-                segundaCarta = cartaClicada;
-                //aqui devo fazer uma comparação nas cartas, se são iguais devo deixar elas viradas, ou seja não faço nada com elas, apenas coloco o valor como undefined
+        if (segundaCarta === null) {
+            segundaCarta = cartaClicada;
+            //aqui devo fazer uma comparação nas cartas, se são iguais devo deixar elas viradas, ou seja não faço nada com elas, apenas coloco o valor como undefined
             if (primeiraCarta.innerHTML === segundaCarta.innerHTML) {
                 //deixo elas viradas e torno elas como undefined, ou seja informo ao js que as duas estão clicadas
                 resetarCartas();
@@ -126,25 +128,27 @@ function desvirarCarta() {
 }
 
 function finalizarJogo() {
-    let resetarTempo = document.querySelector(".timer");
+    // let resetarTempo = document.querySelector(".timer");
     if (contadorDeJogadas === duplicarCartas.length) {
 
-        alert(`Você ganhou em ${cliques} jogadas e em ${temporizador}s! ☺️`);
+        alert(`Você ganhou com ${cliques} jogadas e em ${temporizador} segundos! 🥳`);
 
-        resetarTempo.classList.remove("timer");
+        // resetarTempo.classList.remove("timer");
 
-        resetarTempo.innerHTML = "";
+        // resetarTempo.innerHTML = "";
 
         setTimeout(reiniciarJogo, 1200);
-    } 
+    }
 }
 
 function reiniciarJogo() {
 
-    let answer = confirm("Você quer reiniciar a partida?");
+    let answer = confirm("Você quer jogar novamente? 🥳");
 
     if (answer === true) {
         window.location.reload();
+    }else{
+        alert('Agradeço por Jogar PARROTS CARD GAME 🦜');
     }
 }
 
@@ -152,4 +156,9 @@ function contarTempo() {
     temporizador++;
 
     document.querySelector('.timer').innerHTML = `${temporizador} s`;
+
+    if (contadorDeJogadas === duplicarCartas.length) {
+        clearInterval(idInterval);
+    }
+
 }
