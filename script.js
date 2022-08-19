@@ -143,14 +143,16 @@ function finalizarJogo() {
 
 function reiniciarJogo() {
 
-    let answer = confirm("Você quer jogar novamente? 🥳");
+    let answer = prompt("Você quer jogar novamente? Digite sim ou não! 🥳");
 
-    if (answer === true) {
+    if (answer === 'sim') {
         window.location.reload();
-    }else{
-        alert('Agradeço por Jogar PARROTS CARD GAME 🦜');
+    }if(answer === 'não'){
+        alert('Agradeço por Jogar PARROT CARD GAME 🦜');
     }
-}
+    
+    }
+
 
 function contarTempo() {
     temporizador++;

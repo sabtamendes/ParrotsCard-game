@@ -28,12 +28,12 @@
  }
 
  .cardBoard {
-   margin: 0 auto;
+   margin: 0 15vw;
    display: flex;
    justify-content: space-evenly;
    flex-wrap: wrap;
-   width: 40vw;
-   height: 20vw;
+   /* width: 40vw;
+   height: 20vw; */
  }
 
  .card {
@@ -107,10 +107,12 @@
    font-size: 35px;
  }
 
- @media(max-width:600px) {
+ @media(max-width:650px) {
    h1 {
-     font-size: 30px;
-     margin: 0;
+     font-size: 35px;
+     display:flex;
+     justify-content: center;
+     align-items: center;
    }
 
    .card {
@@ -125,10 +127,10 @@
      width: 50px;
      height: 50px;
      font-size: 20px;
-     top: 8%;
+     top: 15%;
    }
-
+/* 
    main {
      margin: 0 5vw;
-   }
+   } */
  }
